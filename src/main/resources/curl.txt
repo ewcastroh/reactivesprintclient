@@ -1,0 +1,33 @@
+GET ALL ITEMS
+--------------
+curl http://localhost:8081/client/retrieve
+curl http://localhost:8081/client/exchange
+curl http://localhost:8081/client/exchange/toflux
+
+GET A SINGLE ITEM:
+------------------
+curl http://localhost:8081/client/retrieve/singleitem
+curl http://localhost:8081/client/exchange/singleitem
+curl http://localhost:8081/client/exchange/singleitem/tomono
+
+POST
+----
+curl -d '{"id":null,"description":"Google Nest","price":199.99}' -H "Content-Type: application/json" -X POST http://localhost:8081/client/createItem
+curl -d '{"id":null,"description":"Google Nest","price":199.99}' -H "Content-Type: application/json" -X POST http://localhost:8081/client/createItem/exchange
+curl -d '{"id":null,"description":"Google Nest","price":199.99}' -H "Content-Type: application/json" -X POST http://localhost:8081/client/createItem/exchange/tomono
+
+PUT
+----
+curl -d '{"id":null,"description":"Beats HeadPhones","price":139.99}' -H "Content-Type: application/json" -X PUT http://localhost:8081/client/updateItem/abc
+curl -d '{"id":null,"description":"Beats HeadPhones","price":129.99}' -H "Content-Type: application/json" -X PUT http://localhost:8081/client/updateItem/abc/exchange
+curl -d '{"id":null,"description":"Beats HeadPhones","price":119.99}' -H "Content-Type: application/json" -X PUT http://localhost:8081/client/updateItem/abc/exchange/tomono
+
+DELETE
+------
+curl -X "DELETE" http://localhost:8081/client/deleteItem/5c6f2b2cba14f465e469533f
+curl -X "DELETE" http://localhost:8081/client/deleteItem/5c6f2b2cba14f465e469533f/exchange
+curl -X "DELETE" http://localhost:8081/client/deleteItem/5c6f2b2cba14f465e469533f/exchange/tomono
+
+ERROR
+------
+curl http://localhost:8081/client/retrieve/error
